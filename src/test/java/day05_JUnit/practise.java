@@ -53,9 +53,9 @@ public class practise {
         //        8-Urun ucretinin 25$ oldugunu test edin
         WebElement tutarKontrol = driver.findElement(By.id("gc-buy-box-text"));
         if (tutarKontrol.isDisplayed()){
-            System.out.println("Tutar testi PASSED");
+            System.out.println("Tutar  PASSED");
         }else{
-            System.out.println("Tutar testi FAILED");
+            System.out.println("Tutar FAILED,");
 
         }
 
