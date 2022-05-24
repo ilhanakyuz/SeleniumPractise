@@ -38,8 +38,21 @@ public class C01_ExplicitlyWait extends TestBase {
         driver.findElement(By.xpath("//button[@onclick='swapCheckbox()']")).click();
         //5. “It’s gone!” mesajinin goruntulendigini dogrulayin.
         WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(15));
+       /*
         WebElement itsGoneYaziElementi= driver.findElement(By.xpath("//p[text()=\"It's gone!\"]"));
         wait.until(ExpectedConditions.visibilityOf(itsGoneYaziElementi));
         Assert.assertTrue(itsGoneYaziElementi.isDisplayed());
+
+
+       */
+        WebElement itsGoneYaziElementi = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[text()=\"It's gone!\"]")));
+        Assert.assertTrue(itsGoneYaziElementi.isDisplayed());
+        //6. Add buttonuna basin
+        driver.findElement(By.xpath("//button[text()=\"Add\"]")).click();
+
+        //7. It’s back mesajinin gorundugunu test edin
+        WebElement itsBackElementi = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[text()=\"It's back!\"]")));
+        Assert.assertTrue(itsBackElementi.isDisplayed());
+
     }
 }
